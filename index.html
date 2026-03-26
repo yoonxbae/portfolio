@@ -233,7 +233,7 @@
 
   <!-- ───────────── HERO ───────────── -->
   <div class="hero">
-    <h1>사용자 경험을 위해<br><span class="blue">운영 구조를 설계하는</span> 사람</h1>
+    <h1>사용자 경험을 위해<br><span class="blue">지속 가능한 운영 구조를 설계하는</span> 사람</h1>
     <p class="hero-summary">
       안녕하세요, 이윤서입니다!<br>
       데이터 기반으로 문제를 정의하고, 반복 가능한 운영 개선 사이클을 설계 및 실행해온 경험이 있습니다.
@@ -286,7 +286,7 @@
         <div class="exp-badge">운영 개선 담당자 · 정규직</div>
         <div class="exp-team">플랫폼 OPR 그룹 · 통합운영 스쿼드</div>
         <ul class="bullet-list">
-          <li>CS 운영 데이터 자동화 및 AI 챗봇 품질 개선 운영</li>
+          <li>CS 운영 데이터 분석 프로세스 자동화 및 AI 챗봇 품질 개선</li>
           <li>MySQL 기반 재고 관리 자동화 대시보드 구축 및 운영</li>
           <li>미반납 현황 자동화 및 Zapier 기반 팔로업 프로세스 설계</li>
         </ul>
@@ -327,63 +327,11 @@
     <div class="sec-title">프로젝트</div>
     <div class="portfolio-list">
 
-      <!-- ── P1: CS 자동화 + AI 챗봇 ── -->
-      <div class="proj-card" onclick="toggle(this)">
-        <div class="proj-header">
+      <!-- ── P1: 재고 대시보드 ── -->
+      <div class="proj-card">
+        <div class="proj-header" onclick="toggle(this.closest('.proj-card'))">
           <div class="proj-left">
             <div class="proj-num">1</div>
-            <div class="proj-info">
-              <div class="proj-title">CS 데이터 자동화 & AI 챗봇 개선</div>
-              <div class="proj-meta"><span class="proj-co">오누이(설탭)</span><span class="proj-kpi">유선 단순문의 ↓23%p · 학습지원 ↓14%p</span></div>
-            </div>
-          </div>
-          <div class="proj-arrow">⌄</div>
-        </div>
-        <div class="proj-body">
-          <div class="kpi-chips">
-            <span class="kpi-chip">📉 유선 단순문의 55.1% → 31.9%</span>
-            <span class="kpi-chip">📉 학습지원 단순문의 28.7% → 14.6%</span>
-            <span class="kpi-chip">⚙️ 맨먼스 감소</span>
-          </div>
-          <div class="q-list">
-            <div class="q-item">
-              <div class="q-label">Q1. 프로젝트를 시작하게 된 배경, 문제의 원인은 무엇인가요?</div>
-              <div class="q-body">
-                <p>CS 상담 데이터가 채널톡에 쌓이기만 할 뿐, 어디에도 정리되거나 분석되지 않고 있었습니다. 어떤 유형의 문의가 얼마나 들어오는지, 반복 문의가 무엇인지 파악할 방법이 없었고, 대응은 항상 개별적이고 비효율적으로 이루어졌습니다.</p>
-                <p>AI 챗봇이 도입되어 있음에도 챗봇이 어떤 유형의 문의에 제대로 답하지 못하는지 데이터로 확인되지 않았기 때문에 품질 개선 역시 체계적으로 이루어지지 않았습니다.</p>
-              </div>
-            </div>
-            <div class="q-item">
-              <div class="q-label">Q2. 해결 과정에서 어떤 고민이나 시도를 하셨나요?</div>
-              <div class="q-body">
-                <p><strong>데이터 수집 구조 설계:</strong> Zapier를 통해 채널톡 상담 데이터가 Google Sheets로 자동으로 쌓이는 파이프라인을 구축하고, 주차별 통계를 자동으로 집계하는 구조를 함께 설계했습니다.</p>
-                <p><strong>문제 유형 파악:</strong> 쌓인 데이터를 분석하면서 챗봇이 응답하지 못하거나 잘못 응답하는 문의 유형을 분류하고, 반복적으로 나타나는 패턴을 식별해 개선 우선순위를 정했습니다.</p>
-                <p><strong>개선 실행:</strong> AI 상담 담당 업체와 소통하며 챗봇 응답 품질을 개선하고, 채널톡 워크플로우를 직접 수정해 자주 묻는 유형에 대한 자동 응답 흐름을 최적화했습니다.</p>
-              </div>
-            </div>
-            <div class="q-item">
-              <div class="q-label">Q3. 프로젝트를 진행하며 무엇을 배우셨나요?</div>
-              <div class="q-body">
-                <p>데이터가 쌓이는 구조를 먼저 만들면, 그 이후의 의사결정이 훨씬 빨라진다는 것을 직접 체감했습니다. 데이터가 없을 때는 "느낌"으로 판단했지만, 구조가 생기고 나서는 "이 유형이 이번 달 전체 문의의 30%"라는 명확한 근거로 우선순위를 정할 수 있었습니다.</p>
-                <p>외부 업체와의 협업에서는, 요청의 구체성이 결과 품질을 결정한다는 것을 배웠습니다. 데이터로 근거를 제시하고 구체적인 사례를 들어 요청할수록 개선 속도와 품질이 달라졌습니다.</p>
-              </div>
-            </div>
-            <div class="q-item">
-              <div class="q-label">Q4. 가장 아쉬웠던 판단은 무엇이고, 다시 시도한다면 어떻게 진행할까요?</div>
-              <div class="q-body">
-                <p>데이터 수집 구조를 설계할 때 분석 목적을 더 명확히 정의했더라면 더 유용한 데이터 구조를 만들 수 있었을 것 같습니다. "일단 쌓고 보자"는 방식으로 접근했는데, 이후 분석 단계에서 원하는 형태로 데이터가 쌓이지 않아 정제하는 데 추가 시간이 걸렸습니다.</p>
-                <p>다시 한다면 수집 → 분석 → 의사결정으로 이어지는 전체 흐름을 먼저 설계하고, 역방향으로 수집 스키마를 정의했을 것입니다.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ── P2: 재고 대시보드 ── -->
-      <div class="proj-card" onclick="toggle(this)">
-        <div class="proj-header">
-          <div class="proj-left">
-            <div class="proj-num">2</div>
             <div class="proj-info">
               <div class="proj-title">재고 관리 자동화 대시보드 구축</div>
               <div class="proj-meta"><span class="proj-co">오누이(설탭)</span><span class="proj-kpi">전면 수기 관리 → 자동화 리포트 · 맨먼스 감소</span></div>
@@ -433,9 +381,61 @@
         </div>
       </div>
 
+      <!-- ── P2: CS 자동화 + AI 챗봇 ── -->
+      <div class="proj-card">
+        <div class="proj-header" onclick="toggle(this.closest('.proj-card'))">
+          <div class="proj-left">
+            <div class="proj-num">2</div>
+            <div class="proj-info">
+              <div class="proj-title">CS 데이터 자동화 & AI 챗봇 개선</div>
+              <div class="proj-meta"><span class="proj-co">오누이(설탭)</span><span class="proj-kpi">유선 단순문의 ↓23%p · 채널톡 학습지원 채널 ↓14%p</span></div>
+            </div>
+          </div>
+          <div class="proj-arrow">⌄</div>
+        </div>
+        <div class="proj-body">
+          <div class="kpi-chips">
+            <span class="kpi-chip">📉 유선 단순문의 55.1% → 31.9%</span>
+            <span class="kpi-chip">📉 채널톡 학습지원 채널 채팅 단순문의 28.7% → 14.6%</span>
+            <span class="kpi-chip">⚙️ 맨먼스 감소</span>
+          </div>
+          <div class="q-list">
+            <div class="q-item">
+              <div class="q-label">Q1. 프로젝트를 시작하게 된 배경, 문제의 원인은 무엇인가요?</div>
+              <div class="q-body">
+                <p>CS 상담 데이터가 채널톡에 쌓이기만 할 뿐, 어디에도 정리되거나 분석되지 않고 있었습니다. 어떤 유형의 문의가 얼마나 들어오는지, 반복 문의가 무엇인지 파악할 방법이 없었고, 대응은 항상 개별적이고 비효율적으로 이루어졌습니다.</p>
+                <p>AI 챗봇이 도입되어 있음에도 챗봇이 어떤 유형의 문의에 제대로 답하지 못하는지 데이터로 확인되지 않았기 때문에 품질 개선 역시 체계적으로 이루어지지 않았습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q2. 해결 과정에서 어떤 고민이나 시도를 하셨나요?</div>
+              <div class="q-body">
+                <p><strong>데이터 수집 구조 설계:</strong> Zapier를 통해 채널톡 상담 데이터가 Google Sheets로 자동으로 쌓이는 파이프라인을 구축하고, 주차별 통계를 자동으로 집계하는 구조를 함께 설계했습니다.</p>
+                <p><strong>문제 유형 파악:</strong> 쌓인 데이터를 분석하면서 챗봇이 응답하지 못하거나 잘못 응답하는 문의 유형을 분류하고, 반복적으로 나타나는 패턴을 식별해 개선 우선순위를 정했습니다.</p>
+                <p><strong>개선 실행:</strong> AI 상담 담당 업체와 소통하며 챗봇 응답 품질을 개선하고, 채널톡 워크플로우를 직접 수정해 자주 묻는 유형에 대한 자동 응답 흐름을 최적화했습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q3. 프로젝트를 진행하며 무엇을 배우셨나요?</div>
+              <div class="q-body">
+                <p>데이터가 쌓이는 구조를 먼저 만들면, 그 이후의 의사결정이 훨씬 빨라진다는 것을 직접 체감했습니다. 데이터가 없을 때는 "느낌"으로 판단했지만, 구조가 생기고 나서는 "이 유형이 이번 달 전체 문의의 30%"라는 명확한 근거로 우선순위를 정할 수 있었습니다.</p>
+                <p>외부 업체와의 협업에서는, 요청의 구체성이 결과 품질을 결정한다는 것을 배웠습니다. 데이터로 근거를 제시하고 구체적인 사례를 들어 요청할수록 개선 속도와 품질이 달라졌습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q4. 가장 아쉬웠던 판단은 무엇이고, 다시 시도한다면 어떻게 진행할까요?</div>
+              <div class="q-body">
+                <p>데이터 수집 구조를 설계할 때 분석 목적을 더 명확히 정의했더라면 더 유용한 데이터 구조를 만들 수 있었을 것 같습니다. "일단 쌓고 보자"는 방식으로 접근했는데, 이후 분석 단계에서 원하는 형태로 데이터가 쌓이지 않아 정제하는 데 추가 시간이 걸렸습니다.</p>
+                <p>다시 한다면 수집 → 분석 → 의사결정으로 이어지는 전체 흐름을 먼저 설계하고, 역방향으로 수집 스키마를 정의했을 것입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ── P3: 검색 운영 프로세스 ── -->
-      <div class="proj-card" onclick="toggle(this)">
-        <div class="proj-header">
+      <div class="proj-card">
+        <div class="proj-header" onclick="toggle(this.closest('.proj-card'))">
           <div class="proj-left">
             <div class="proj-num">3</div>
             <div class="proj-info">
@@ -486,8 +486,8 @@
       </div>
 
       <!-- ── P4: CTA 전략 ── -->
-      <div class="proj-card" onclick="toggle(this)">
-        <div class="proj-header">
+      <div class="proj-card">
+        <div class="proj-header" onclick="toggle(this.closest('.proj-card'))">
           <div class="proj-left">
             <div class="proj-num">4</div>
             <div class="proj-info">
