@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이윤서 | UX Research Operations Manager</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #F3F4F6;
+      z-index: 100; padding: 14px 0;
+    }
+    nav .container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-weight: 700; font-size: 15px; color: #111827; text-decoration: none; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 13px; color: #9CA3AF; text-decoration: none; font-weight: 500; transition: color .15s; }
+    .nav-links a:hover { color: #0064FF; }
+
+    /* ── Hero ── */
+    .hero { padding: 72px 0 56px; border-bottom: 1px solid #F3F4F6; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #EFF6FF; color: #0064FF;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.02em;
+      padding: 5px 12px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 38px; font-weight: 800; line-height: 1.2;
+      letter-spacing: -0.03em; margin-bottom: 14px;
+    }
+    .hero h1 .blue { color: #0064FF; }
+    .hero-summary {
+      font-size: 16px; color: #6B7280; line-height: 1.75;
+      max-width: 540px; margin-bottom: 28px;
+    }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #F9FAFB; border: 1px solid #E5E7EB;
+      border-radius: 8px; padding: 7px 13px;
+      font-size: 13px; color: #374151; text-decoration: none;
+      transition: all .15s;
+    }
+    .chip:hover { border-color: #0064FF; color: #0064FF; background: #EFF6FF; }
+
+    /* ── KPI ── */
+    .kpi-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: #F3F4F6;
+      border: 1px solid #F3F4F6; border-radius: 16px;
+      overflow: hidden; margin: 40px 0;
+    }
+    .kpi-cell {
+      background: #fff; text-align: center; padding: 24px 16px;
+    }
+    .kpi-val {
+      font-size: 28px; font-weight: 800; color: #0064FF;
+      letter-spacing: -0.03em; line-height: 1;
+    }
+    .kpi-desc { font-size: 12px; color: #9CA3AF; margin-top: 6px; line-height: 1.5; }
+
+    /* ── Section ── */
+    section { padding: 56px 0; border-bottom: 1px solid #F3F4F6; }
+    section:last-of-type { border-bottom: none; }
+    .sec-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: #0064FF; margin-bottom: 6px;
+    }
+    .sec-title {
+      font-size: 24px; font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+
+    /* ── About ── */
+    .about-grid { display: flex; flex-direction: column; gap: 12px; }
+    .about-row {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px 18px; background: #F9FAFB; border-radius: 12px;
+    }
+    .about-ico { font-size: 18px; flex-shrink: 0; }
+    .about-txt { font-size: 14px; color: #374151; line-height: 1.7; }
+
+    /* ── Experience ── */
+    .exp-list { display: flex; flex-direction: column; gap: 16px; }
+    .exp-card {
+      border: 1px solid #E5E7EB; border-radius: 14px; padding: 20px 22px;
+    }
+    .exp-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+    .exp-company { font-size: 16px; font-weight: 700; }
+    .exp-period { font-size: 12px; color: #9CA3AF; white-space: nowrap; margin-left: 12px; }
+    .exp-badge {
+      display: inline-block; background: #EFF6FF; color: #0064FF;
+      font-size: 11px; font-weight: 700; padding: 3px 9px;
+      border-radius: 6px; margin-bottom: 10px;
+    }
+    .exp-team { font-size: 12px; color: #9CA3AF; margin-bottom: 12px; }
+    .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .bullet-list li {
+      font-size: 13px; color: #374151; padding-left: 16px;
+      position: relative; line-height: 1.65;
+    }
+    .bullet-list li::before { content: '—'; position: absolute; left: 0; color: #D1D5DB; }
+
+    /* ── Skills ── */
+    .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .skill-card {
+      border: 1px solid #E5E7EB; border-radius: 12px; padding: 16px 18px;
+    }
+    .skill-card-title { font-size: 12px; font-weight: 700; color: #6B7280; margin-bottom: 10px; letter-spacing: 0.04em; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      background: #F3F4F6; color: #374151;
+      font-size: 12px; font-weight: 600;
+      padding: 4px 10px; border-radius: 6px;
+    }
+
+    /* ── Portfolio ── */
+    .portfolio-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .proj-card {
+      border: 1px solid #E5E7EB; border-radius: 14px; overflow: hidden;
+      transition: border-color .2s;
+    }
+    .proj-card.open { border-color: #0064FF; }
+
+    .proj-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 20px; cursor: pointer; background: #fff;
+      transition: background .15s; user-select: none;
+    }
+    .proj-header:hover { background: #F9FAFB; }
+    .proj-card.open .proj-header { background: #EFF6FF; }
+
+    .proj-left { display: flex; align-items: center; gap: 12px; }
+    .proj-num {
+      width: 26px; height: 26px; border-radius: 7px;
+      background: #F3F4F6; display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; color: #9CA3AF; flex-shrink: 0;
+    }
+    .proj-card.open .proj-num { background: #0064FF; color: #fff; }
+    .proj-info {}
+    .proj-title { font-size: 15px; font-weight: 700; line-height: 1.3; }
+    .proj-meta { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+    .proj-co {
+      font-size: 11px; font-weight: 600; color: #6B7280;
+      background: #F3F4F6; padding: 2px 7px; border-radius: 4px;
+    }
+    .proj-arrow { font-size: 16px; color: #9CA3AF; transition: transform .2s; flex-shrink: 0; }
+    .proj-card.open .proj-arrow { transform: rotate(180deg); color: #0064FF; }
+
+    .proj-body { display: none; padding: 4px 20px 22px; }
+    .proj-card.open .proj-body { display: block; }
+
+    .kpi-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+    .kpi-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #F0FDF4; border: 1px solid #BBF7D0; color: #15803D;
+      font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 100px;
+    }
+
+    .q-list { display: flex; flex-direction: column; gap: 0; }
+    .q-item { padding: 16px 0; border-bottom: 1px solid #F3F4F6; }
+    .q-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .q-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+      color: #0064FF; margin-bottom: 8px;
+    }
+    .q-body { font-size: 13px; color: #374151; line-height: 1.8; }
+    .q-body p { margin-bottom: 8px; }
+    .q-body p:last-child { margin-bottom: 0; }
+    .q-body strong { color: #111827; font-weight: 700; }
+
+    /* ── Education ── */
+    .edu-list { display: flex; flex-direction: column; gap: 12px; }
+    .edu-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 14px 16px; border: 1px solid #E5E7EB; border-radius: 10px;
+    }
+    .edu-name { font-size: 14px; font-weight: 700; }
+    .edu-sub { font-size: 12px; color: #6B7280; margin-top: 3px; }
+    .edu-period { font-size: 12px; color: #9CA3AF; white-space: nowrap; margin-left: 12px; }
+
+    /* ── Footer ── */
+    footer { padding: 40px 0; text-align: center; }
+    .footer-inner { font-size: 13px; color: #9CA3AF; }
+    .footer-inner a { color: #6B7280; text-decoration: none; }
+    .footer-inner a:hover { color: #0064FF; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .kpi-strip { grid-template-columns: repeat(3, 1fr); }
+      .kpi-val { font-size: 22px; }
+      .skill-grid { grid-template-columns: 1fr; }
+      .exp-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="nav-logo" href="#">이윤서</a>
+    <div class="nav-links">
+      <a href="#about">소개</a>
+      <a href="#experience">경력</a>
+      <a href="#portfolio">포트폴리오</a>
+      <a href="#skills">스킬</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ───────────── HERO ───────────── -->
+  <div class="hero">
+    <div class="hero-badge">🎯 토스플레이스 UX Research Operations Manager 지원</div>
+    <h1>운영을 설계하고<br><span class="blue">구조를 만드는</span> 사람</h1>
+    <p class="hero-summary">
+      데이터 기반으로 문제를 정의하고, 반복 가능한 운영 개선 사이클을 설계·실행해온 경험이 있습니다.
+      서비스 품질 향상, 운영 효율화, 사용자 경험 개선을 목표로 다양한 프로젝트를 주도하며
+      구조적인 문제 해결 역량을 키웠습니다.
+    </p>
+    <div class="contact-row">
+      <a class="chip" href="tel:01079233498">📞 010-7923-3498</a>
+      <a class="chip" href="mailto:yoonseo988@daum.net">✉️ yoonseo988@daum.net</a>
+      <a class="chip" href="https://github.com/Palacpaniyoonie" target="_blank">🐙 GitHub</a>
+    </div>
+  </div>
+
+  <!-- ───────────── KPI ───────────── -->
+  <div class="kpi-strip">
+    <div class="kpi-cell">
+      <div class="kpi-val">↓23%p</div>
+      <div class="kpi-desc">유선 단순문의<br>비율 감소</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-val">3×</div>
+      <div class="kpi-desc">검색 CTA<br>CTR 향상</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-val">↓14%p</div>
+      <div class="kpi-desc">학습지원<br>단순문의 감소</div>
+    </div>
+  </div>
+
+  <!-- ───────────── ABOUT ───────────── -->
+  <section id="about">
+    <div class="sec-label">ABOUT</div>
+    <div class="sec-title">일하는 방식</div>
+    <div class="about-grid">
+      <div class="about-row">
+        <div class="about-ico">📊</div>
+        <div class="about-txt">사용자 행동 데이터를 기반으로 문제를 정의하고, 사전에 대응하는 운영 체계를 설계합니다.</div>
+      </div>
+      <div class="about-row">
+        <div class="about-ico">🔍</div>
+        <div class="about-txt">정량·정성 데이터를 결합해 사용자의 기대와 실제 경험 사이의 간극을 발견하고 서비스 성과로 연결합니다.</div>
+      </div>
+      <div class="about-row">
+        <div class="about-ico">🏗️</div>
+        <div class="about-txt">단발적인 문제 해결에서 벗어나, 누구나 참여할 수 있는 반복 가능한 운영 구조를 만드는 데 집중합니다.</div>
+      </div>
+      <div class="about-row">
+        <div class="about-ico">🤝</div>
+        <div class="about-txt">다양한 부서와의 협업 속에서 정보 전달의 정확성과 소통 체계를 설계해 협업 효율을 높입니다.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── EXPERIENCE ───────────── -->
+  <section id="experience">
+    <div class="sec-label">EXPERIENCE</div>
+    <div class="sec-title">경력</div>
+    <div class="exp-list">
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div class="exp-company">오누이 (설탭)</div>
+          <div class="exp-period">2025.09 — 현재</div>
+        </div>
+        <div class="exp-badge">운영 개선 담당자 · 정규직</div>
+        <div class="exp-team">통합운영 스쿼드</div>
+        <ul class="bullet-list">
+          <li>CS 운영 데이터 자동화 파이프라인 구축 (Zapier: 채널톡 → Google Sheets)</li>
+          <li>AI 챗봇 품질 개선 운영 — 유선 단순문의 55.1% → 31.9% (↓23%p)</li>
+          <li>MySQL 기반 재고 관리 자동화 대시보드 구축 (5탭, 매일 00시 자동 갱신)</li>
+          <li>미반납 현황 자동화 — 학생/선생님 알림톡 차수 자동 산정 및 Slack 리포트 연동</li>
+          <li>Zapier 기반 반납 팔로업 시트 자동화 및 맨먼스 감소</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div class="exp-company">버킷플레이스 (오늘의집)</div>
+          <div class="exp-period">2023.01 — 2024.12</div>
+        </div>
+        <div class="exp-badge">Search &amp; Recommendation Operator</div>
+        <ul class="bullet-list">
+          <li>3만 건 검색어 유형화 및 체계적 운영 기준 수립 — 품질 히스토리 자산화</li>
+          <li>확장 키워드 어드민 PRD 작성 및 개발팀 협업으로 툴 구축</li>
+          <li>Redash 기반 모니터링 대시보드 기획 및 Weekly 정기 운영 체계 수립</li>
+          <li>검색 최상단 CTA 전략 운영 — CTR 10% → 30% (3배 향상)</li>
+          <li>이미지 추천 모델 어노테이션 운영 — taxonomy 설계, 데이터 품질 관리</li>
+          <li>Slack Workflow 기반 내부 문의 응대 체계화 및 FAQ 구축</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-top">
+          <div class="exp-company">경찰청 치안빅데이터팀</div>
+          <div class="exp-period">2023.09 — 2023.12</div>
+        </div>
+        <div class="exp-badge">일경험 수련생</div>
+        <ul class="bullet-list">
+          <li>뉴스 감성 분석 모델 개발 및 LDA 토픽 모델링</li>
+          <li>빅데이터 플랫폼 유입 향상을 위한 부가 서비스 기획 및 성능 개선</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── PORTFOLIO ───────────── -->
+  <section id="portfolio">
+    <div class="sec-label">PORTFOLIO</div>
+    <div class="sec-title">프로젝트</div>
+    <div class="portfolio-list">
+
+      <!-- ── P1: CS 자동화 + AI 챗봇 ── -->
+      <div class="proj-card" onclick="toggle(this)">
+        <div class="proj-header">
+          <div class="proj-left">
+            <div class="proj-num">1</div>
+            <div class="proj-info">
+              <div class="proj-title">CS 데이터 자동화 & AI 챗봇 개선</div>
+              <div class="proj-meta"><span class="proj-co">오누이(설탭)</span></div>
+            </div>
+          </div>
+          <div class="proj-arrow">⌄</div>
+        </div>
+        <div class="proj-body">
+          <div class="kpi-chips">
+            <span class="kpi-chip">📉 유선 단순문의 55.1% → 31.9%</span>
+            <span class="kpi-chip">📉 학습지원 단순문의 28.7% → 14.6%</span>
+            <span class="kpi-chip">⚙️ 맨먼스 감소</span>
+          </div>
+          <div class="q-list">
+            <div class="q-item">
+              <div class="q-label">Q1. 프로젝트를 시작하게 된 배경, 문제의 원인은 무엇인가요?</div>
+              <div class="q-body">
+                <p>CS 상담 데이터가 채널톡에 쌓이기만 할 뿐, 어디에도 정리되거나 분석되지 않고 있었습니다. 어떤 유형의 문의가 얼마나 들어오는지, 반복 문의가 무엇인지 파악할 방법이 없었고, 대응은 항상 개별적이고 비효율적으로 이루어졌습니다.</p>
+                <p>AI 챗봇이 도입되어 있음에도 챗봇이 어떤 유형의 문의에 제대로 답하지 못하는지 데이터로 확인되지 않았기 때문에 품질 개선 역시 체계적으로 이루어지지 않았습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q2. 해결 과정에서 어떤 고민이나 시도를 하셨나요?</div>
+              <div class="q-body">
+                <p><strong>데이터 수집 구조 설계:</strong> Zapier를 통해 채널톡 상담 데이터가 Google Sheets로 자동으로 쌓이는 파이프라인을 구축하고, 주차별 통계를 자동으로 집계하는 구조를 함께 설계했습니다.</p>
+                <p><strong>문제 유형 파악:</strong> 쌓인 데이터를 분석하면서 챗봇이 응답하지 못하거나 잘못 응답하는 문의 유형을 분류하고, 반복적으로 나타나는 패턴을 식별해 개선 우선순위를 정했습니다.</p>
+                <p><strong>개선 실행:</strong> AI 상담 담당 업체와 소통하며 챗봇 응답 품질을 개선하고, 채널톡 워크플로우를 직접 수정해 자주 묻는 유형에 대한 자동 응답 흐름을 최적화했습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q3. 프로젝트를 진행하며 무엇을 배우셨나요?</div>
+              <div class="q-body">
+                <p>데이터가 쌓이는 구조를 먼저 만들면, 그 이후의 의사결정이 훨씬 빨라진다는 것을 직접 체감했습니다. 데이터가 없을 때는 "느낌"으로 판단했지만, 구조가 생기고 나서는 "이 유형이 이번 달 전체 문의의 30%"라는 명확한 근거로 우선순위를 정할 수 있었습니다.</p>
+                <p>외부 업체와의 협업에서는, 요청의 구체성이 결과 품질을 결정한다는 것을 배웠습니다. 데이터로 근거를 제시하고 구체적인 사례를 들어 요청할수록 개선 속도와 품질이 달라졌습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q4. 가장 아쉬웠던 판단은 무엇이고, 다시 시도한다면 어떻게 진행할까요?</div>
+              <div class="q-body">
+                <p>데이터 수집 구조를 설계할 때 분석 목적을 더 명확히 정의했더라면 더 유용한 데이터 구조를 만들 수 있었을 것 같습니다. "일단 쌓고 보자"는 방식으로 접근했는데, 이후 분석 단계에서 원하는 형태로 데이터가 쌓이지 않아 정제하는 데 추가 시간이 걸렸습니다.</p>
+                <p>다시 한다면 수집 → 분석 → 의사결정으로 이어지는 전체 흐름을 먼저 설계하고, 역방향으로 수집 스키마를 정의했을 것입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── P2: 재고 대시보드 ── -->
+      <div class="proj-card" onclick="toggle(this)">
+        <div class="proj-header">
+          <div class="proj-left">
+            <div class="proj-num">2</div>
+            <div class="proj-info">
+              <div class="proj-title">재고 관리 자동화 대시보드 구축</div>
+              <div class="proj-meta"><span class="proj-co">오누이(설탭)</span></div>
+            </div>
+          </div>
+          <div class="proj-arrow">⌄</div>
+        </div>
+        <div class="proj-body">
+          <div class="kpi-chips">
+            <span class="kpi-chip">📊 5탭 대시보드, 매일 자동 갱신</span>
+            <span class="kpi-chip">🔔 Slack 자동 리포트 연동</span>
+            <span class="kpi-chip">⚙️ 미반납 팔로업 자동화</span>
+            <span class="kpi-chip">📉 맨먼스 감소</span>
+          </div>
+          <div class="q-list">
+            <div class="q-item">
+              <div class="q-label">Q1. 프로젝트를 시작하게 된 배경, 문제의 원인은 무엇인가요?</div>
+              <div class="q-body">
+                <p>학습 기기의 재고 현황이 수기로 관리되고 있어 실시간으로 상태를 파악하기 어려웠습니다. 출고/입고/미반납 데이터가 분산되어 있었고, 미반납 학생·선생님 추적도 담당자가 수동으로 수행하는 구조였습니다.</p>
+                <p>특히 미반납 알림톡 발송 차수 산정이 수작업에 의존하고 있어 누락 리스크가 크고 반복 공수가 상당했습니다. "지금 몇 대 남아있어요?"라는 단순한 질문 하나에도 즉각 답하기 어려운 상태였습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q2. 해결 과정에서 어떤 고민이나 시도를 하셨나요?</div>
+              <div class="q-body">
+                <p><strong>5탭 대시보드 설계:</strong> MySQL 기반으로 재고 현황 / 출고 현황 / 입고 현황 / 미반납 현황 / 종합 현황 5개 탭을 구성했습니다. stock, stock_history, rent_device, delivery 등 테이블을 연결하는 쿼리를 직접 설계했고, 매일 00시 자동 갱신 및 매주 월·수·금 Slack 자동 리포트를 연동했습니다.</p>
+                <p><strong>입고 로직 정의:</strong> 단순히 상태가 바뀐 것을 입고로 보는 게 아니라, "출고 → 입고대기 → 정상", "출고 → 정상" 등 의미 있는 경로만을 입고로 판단하는 로직을 7개 케이스(A~G)로 명확히 정의하고, 중복/노이즈 케이스(H~J)를 필터링했습니다.</p>
+                <p><strong>미반납 팔로업 자동화:</strong> 학생은 마지막 수업일 기준, 선생님은 마지막 활동일 기준으로 5일 이상 경과 시 자동으로 대상자를 추출하고, 알림톡 발송 차수(1~3차 → 결제필요/내용증명)를 자동 산정하도록 구조를 설계했습니다. Zapier로 반납확인서 제출 / 회수요청 팔로업 시트도 자동화했습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q3. 프로젝트를 진행하며 무엇을 배우셨나요?</div>
+              <div class="q-body">
+                <p>운영 자동화는 기술적 구현보다 '운영하는 사람이 어떻게 쓸 것인가'를 먼저 설계하는 것이 중요하다는 것을 배웠습니다. 시스템이 아무리 정교해도 입력이 불편하면 결국 수기로 돌아가게 됩니다.</p>
+                <p>또한 엣지 케이스를 얼마나 촘촘하게 정의하느냐가 데이터 신뢰도를 결정한다는 것을 깨달았습니다. 입고 로직 케이스 정의 과정에서, 경계 조건을 명확히 하지 않으면 집계 결과가 기대와 달라지는 문제가 반복됐습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q4. 가장 아쉬웠던 판단은 무엇이고, 다시 시도한다면 어떻게 진행할까요?</div>
+              <div class="q-body">
+                <p>배포 전 실제 운영자와 함께하는 테스트 세션을 충분히 진행하지 못했습니다. 배포 이후 "이 케이스는 어떻게 처리하나요?"라는 질문이 반복됐고, 이는 설계 단계에서 운영자의 실제 워크플로우를 더 깊이 이해하지 못한 결과였습니다.</p>
+                <p>다시 한다면 파일럿 운영 기간을 먼저 설정하고, 실제 담당자의 피드백 루프를 설계 단계에 통합했을 것입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── P3: 검색 운영 프로세스 ── -->
+      <div class="proj-card" onclick="toggle(this)">
+        <div class="proj-header">
+          <div class="proj-left">
+            <div class="proj-num">3</div>
+            <div class="proj-info">
+              <div class="proj-title">검색 운영 프로세스 수립 및 품질 개선</div>
+              <div class="proj-meta"><span class="proj-co">버킷플레이스(오늘의집)</span></div>
+            </div>
+          </div>
+          <div class="proj-arrow">⌄</div>
+        </div>
+        <div class="proj-body">
+          <div class="kpi-chips">
+            <span class="kpi-chip">🔍 3만 개 질의어 진단</span>
+            <span class="kpi-chip">🛠️ 확장 키워드 어드민 구축</span>
+            <span class="kpi-chip">📊 Weekly 모니터링 체계 수립</span>
+          </div>
+          <div class="q-list">
+            <div class="q-item">
+              <div class="q-label">Q1. 프로젝트를 시작하게 된 배경, 문제의 원인은 무엇인가요?</div>
+              <div class="q-body">
+                <p>검색 품질 이슈는 대부분 유저 제보나 팀원 제보를 통해 문제 발생 이후에야 뒤늦게 인지되었습니다. 대응은 단발적이고 수동적으로 이루어졌고, 동일한 문제가 반복되는 악순환이 이어졌습니다. 특히 신규로 유입되는 질의어는 사각지대에 놓여, 체계적인 품질 관리가 어려운 구조였습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q2. 해결 과정에서 어떤 고민이나 시도를 하셨나요?</div>
+              <div class="q-body">
+                <p><strong>대규모 품질 진단:</strong> 약 3만 개의 질의어를 트래픽 규모(Top/Middle/Bottom), CTR/CVR 성과, 카테고리별로 다각도 분석해 우선순위를 정하고 단계적으로 품질을 개선했습니다.</p>
+                <p><strong>확장 키워드 어드민 구축:</strong> 검색 결과 0건 또는 매우 적은 질의어군을 발견하고, 직접 PRD를 작성해 개발팀과 협업하여 운영적으로 키워드를 확장할 수 있는 어드민 툴을 설계·구축했습니다.</p>
+                <p><strong>모니터링 체계 수립:</strong> DA팀과 협업해 Redash 기반 모니터링 대시보드를 기획하고, 인기 키워드/급등 키워드/시즈널 키워드 유형을 정의해 Weekly 정기 운영 체계를 수립했습니다.</p>
+                <p><strong>품질 평가 툴:</strong> 검색 결과를 5점/3점/1점으로 평가하는 기준을 정의하고, 파트타이머가 일관된 기준으로 평가할 수 있도록 평가 툴과 운영 가이드를 설계했습니다. 수집된 평가지표는 엔지니어링 팀의 랭킹 개선에 기초 자료로 활용되었습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q3. 프로젝트를 진행하며 무엇을 배우셨나요?</div>
+              <div class="q-body">
+                <p>운영 체계는 '만드는 것'보다 '지속하는 것'이 더 어렵다는 것을 배웠습니다. 모니터링 기준을 세우고 대시보드를 만드는 것은 시작이고, 팀 전체가 그것을 정기적으로 활용할 수 있도록 운영 루틴과 문서를 함께 설계해야 비로소 체계로 정착됩니다.</p>
+                <p>또한 운영 데이터를 단순 기록이 아닌 엔지니어링 팀의 개선 작업에 연결하는 과정에서, 운영과 개발의 협업 구조를 설계하는 역할의 중요성을 실감했습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q4. 가장 아쉬웠던 판단은 무엇이고, 다시 시도한다면 어떻게 진행할까요?</div>
+              <div class="q-body">
+                <p>품질 평가 툴 운영 과정에서, 평가자 간 일관성을 확보하는 데 초기에 충분한 시간을 쏟지 못했습니다. 기준을 문서화했음에도 평가자마다 해석이 달라 일부 데이터를 재평가해야 했습니다.</p>
+                <p>다시 한다면 운영 시작 전 calibration session을 먼저 진행하고, 평가자 간 일치도(inter-rater reliability)를 측정하는 기준도 함께 정의했을 것입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── P4: CTA 전략 ── -->
+      <div class="proj-card" onclick="toggle(this)">
+        <div class="proj-header">
+          <div class="proj-left">
+            <div class="proj-num">4</div>
+            <div class="proj-info">
+              <div class="proj-title">검색 최상단 CTA 영역 전략 운영</div>
+              <div class="proj-meta"><span class="proj-co">버킷플레이스(오늘의집)</span></div>
+            </div>
+          </div>
+          <div class="proj-arrow">⌄</div>
+        </div>
+        <div class="proj-body">
+          <div class="kpi-chips">
+            <span class="kpi-chip">📈 CTR 10% → 30% (3배 향상)</span>
+            <span class="kpi-chip">🎯 유형별 UI 기획</span>
+            <span class="kpi-chip">🔁 정기 운영 체계 구축</span>
+          </div>
+          <div class="q-list">
+            <div class="q-item">
+              <div class="q-label">Q1. 프로젝트를 시작하게 된 배경, 문제의 원인은 무엇인가요?</div>
+              <div class="q-body">
+                <p>검색 상단 CTA 영역은 상품·기획전·콘텐츠를 사용자에게 노출할 수 있는 핵심 공간이었지만, 질의어 선정 기준이 없었고 성과를 트래킹하는 구조도 부재했습니다. 운영은 비정기적이었고, 어떤 CTA가 효과적인지 판단할 수 없는 상태였습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q2. 해결 과정에서 어떤 고민이나 시도를 하셨나요?</div>
+              <div class="q-body">
+                <p><strong>질의어 유형화:</strong> 콘텐츠형(예: 3평 인테리어), 브랜드형(예: 무인양품), 프로모션형(예: 70% 세일) 등으로 유형을 정의하고, 유형별 전용 CTA UI를 기획했습니다.</p>
+                <p><strong>성과 트래킹 설계:</strong> A/B 테스트를 설계하고 클릭 이벤트 수집 지표를 정의해 CTR, CVR 기반의 성과 측정 구조를 만들었습니다.</p>
+                <p><strong>운영 체계 정비:</strong> 운영 주기를 명시하고, 우선순위 문서화와 자동 리포팅 체계를 도입해 정기 운영이 가능한 구조를 만들었습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q3. 프로젝트를 진행하며 무엇을 배우셨나요?</div>
+              <div class="q-body">
+                <p>사용자의 검색 의도와 CTA 콘텐츠의 맥락이 일치할 때 클릭이 발생한다는 것을 데이터로 확인했습니다. 단순히 노출을 늘리는 것보다, 사용자가 기대하는 결과와 노출 콘텐츠의 연관성을 높이는 것이 핵심이었습니다.</p>
+                <p>또한 운영을 체계화했을 때, 성과 개선이 단발적 노력이 아닌 구조에서 나온다는 것을 경험했습니다.</p>
+              </div>
+            </div>
+            <div class="q-item">
+              <div class="q-label">Q4. 가장 아쉬웠던 판단은 무엇이고, 다시 시도한다면 어떻게 진행할까요?</div>
+              <div class="q-body">
+                <p>성과 측정 지표를 CTR 중심으로만 설계한 것이 아쉬웠습니다. CTR이 높아도 최종 전환(구매, 콘텐츠 소비)으로 이어지지 않는 케이스가 있었는데, 이를 초기부터 함께 트래킹했다면 더 정확한 CTA 전략을 수립할 수 있었을 것입니다.</p>
+                <p>다시 한다면 CTR과 함께 Post-click 행동 지표를 처음부터 함께 설계하고 추적했을 것입니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────── SKILLS ───────────── -->
+  <section id="skills">
+    <div class="sec-label">SKILLS</div>
+    <div class="sec-title">스킬 &amp; 도구</div>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">LANGUAGES</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python ★★★★</span>
+          <span class="skill-tag">SQL ★★★★</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">DATA &amp; ANALYTICS</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Redash</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Hive</span>
+          <span class="skill-tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">AUTOMATION &amp; OPS</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Zapier</span>
+          <span class="skill-tag">Google Apps Script</span>
+          <span class="skill-tag">Slack Workflow</span>
+          <span class="skill-tag">채널톡</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">TOOLS &amp; COLLAB</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">Notion</span>
+          <span class="skill-tag">Amplix</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────── EDUCATION ───────────── -->
+  <section>
+    <div class="sec-label">EDUCATION &amp; CERT</div>
+    <div class="sec-title">학력 &amp; 자격</div>
+    <div class="edu-list">
+      <div class="edu-row">
+        <div>
+          <div class="edu-name">경희대학교</div>
+          <div class="edu-sub">국어국문학과 · GPA 3.74 / 4.5</div>
+        </div>
+        <div class="edu-period">2017 — 2022</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-name">ADSP · 컴퓨터 활용능력 2급</div>
+          <div class="edu-sub">데이터분석 준전문가 · OPIc IH (2025.06)</div>
+        </div>
+        <div class="edu-period"></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      이윤서 &nbsp;·&nbsp;
+      <a href="mailto:yoonseo988@daum.net">yoonseo988@daum.net</a> &nbsp;·&nbsp;
+      010-7923-3498
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggle(card) {
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
