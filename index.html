@@ -240,6 +240,16 @@
     .footer-inner a { color: #6B7280; text-decoration: none; }
     .footer-inner a:hover { color: #0064FF; }
 
+    @media print {
+      nav { display: none; }
+      .proj-body { display: block !important; }
+      .proj-arrow { display: none; }
+      .proj-card { border-color: #E5E7EB !important; page-break-inside: avoid; }
+      .proj-header { background: #EFF6FF !important; }
+      .proj-num { background: #0064FF !important; color: #fff !important; }
+      section { page-break-inside: avoid; }
+    }
+
     @media (max-width: 600px) {
       .hero h1 { font-size: 28px; }
       .kpi-strip { grid-template-columns: repeat(3, 1fr); }
