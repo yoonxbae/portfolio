@@ -162,6 +162,9 @@
       font-size: 11px; font-weight: 600; color: #6B7280;
       background: #F3F4F6; padding: 2px 7px; border-radius: 4px;
     }
+    .proj-kpi {
+      font-size: 11px; font-weight: 600; color: #0064FF;
+    }
     .proj-arrow { font-size: 16px; color: #9CA3AF; transition: transform .2s; flex-shrink: 0; }
     .proj-card.open .proj-arrow { transform: rotate(180deg); color: #0064FF; }
 
@@ -230,10 +233,9 @@
 
   <!-- ───────────── HERO ───────────── -->
   <div class="hero">
-    <div class="hero-badge">🎯 토스플레이스 UX Research Operations Manager 지원</div>
     <h1>운영을 설계하고<br><span class="blue">구조를 만드는</span> 사람</h1>
     <p class="hero-summary">
-      데이터 기반으로 문제를 정의하고, 반복 가능한 운영 개선 사이클을 설계·실행해온 경험이 있습니다.
+      데이터 기반으로 문제를 정의하고, 반복 가능한 운영 개선 사이클을 설계 및 실행해온 경험이 있습니다.
       서비스 품질 향상, 운영 효율화, 사용자 경험 개선을 목표로 다양한 프로젝트를 주도하며
       구조적인 문제 해결 역량을 키웠습니다.
     </p>
@@ -244,21 +246,6 @@
     </div>
   </div>
 
-  <!-- ───────────── KPI ───────────── -->
-  <div class="kpi-strip">
-    <div class="kpi-cell">
-      <div class="kpi-val">↓23%p</div>
-      <div class="kpi-desc">유선 단순문의<br>비율 감소</div>
-    </div>
-    <div class="kpi-cell">
-      <div class="kpi-val">3×</div>
-      <div class="kpi-desc">검색 CTA<br>CTR 향상</div>
-    </div>
-    <div class="kpi-cell">
-      <div class="kpi-val">↓14%p</div>
-      <div class="kpi-desc">학습지원<br>단순문의 감소</div>
-    </div>
-  </div>
 
   <!-- ───────────── ABOUT ───────────── -->
   <section id="about">
@@ -296,29 +283,25 @@
           <div class="exp-period">2025.09 — 현재</div>
         </div>
         <div class="exp-badge">운영 개선 담당자 · 정규직</div>
-        <div class="exp-team">통합운영 스쿼드</div>
+        <div class="exp-team">플랫폼 OPR 그룹 · 통합운영 스쿼드</div>
         <ul class="bullet-list">
-          <li>CS 운영 데이터 자동화 파이프라인 구축 (Zapier: 채널톡 → Google Sheets)</li>
-          <li>AI 챗봇 품질 개선 운영 — 유선 단순문의 55.1% → 31.9% (↓23%p)</li>
-          <li>MySQL 기반 재고 관리 자동화 대시보드 구축 (5탭, 매일 00시 자동 갱신)</li>
-          <li>미반납 현황 자동화 — 학생/선생님 알림톡 차수 자동 산정 및 Slack 리포트 연동</li>
-          <li>Zapier 기반 반납 팔로업 시트 자동화 및 맨먼스 감소</li>
+          <li>CS 운영 데이터 자동화 및 AI 챗봇 품질 개선 운영</li>
+          <li>MySQL 기반 재고 관리 자동화 대시보드 구축 및 운영</li>
+          <li>미반납 현황 자동화 및 Zapier 기반 팔로업 프로세스 설계</li>
         </ul>
       </div>
 
       <div class="exp-card">
         <div class="exp-top">
           <div class="exp-company">버킷플레이스 (오늘의집)</div>
-          <div class="exp-period">2023.01 — 2024.12</div>
+          <div class="exp-period">2023.01 — 2024.12 · 총 2년</div>
         </div>
-        <div class="exp-badge">Search &amp; Recommendation Operator</div>
+        <div class="exp-badge">Search &amp; Recommendation Operator · 계약직</div>
+        <div class="exp-team">Discovery</div>
         <ul class="bullet-list">
-          <li>3만 건 검색어 유형화 및 체계적 운영 기준 수립 — 품질 히스토리 자산화</li>
-          <li>확장 키워드 어드민 PRD 작성 및 개발팀 협업으로 툴 구축</li>
-          <li>Redash 기반 모니터링 대시보드 기획 및 Weekly 정기 운영 체계 수립</li>
-          <li>검색 최상단 CTA 전략 운영 — CTR 10% → 30% (3배 향상)</li>
-          <li>이미지 추천 모델 어노테이션 운영 — taxonomy 설계, 데이터 품질 관리</li>
-          <li>Slack Workflow 기반 내부 문의 응대 체계화 및 FAQ 구축</li>
+          <li>검색 운영 프로세스 체계화 및 확장 키워드 어드민 구축</li>
+          <li>Redash 기반 모니터링 대시보드 기획 및 정기 운영 체계 수립</li>
+          <li>검색 최상단 CTA 전략 운영 및 이미지 추천 모델 어노테이션 운영</li>
         </ul>
       </div>
 
@@ -350,7 +333,7 @@
             <div class="proj-num">1</div>
             <div class="proj-info">
               <div class="proj-title">CS 데이터 자동화 & AI 챗봇 개선</div>
-              <div class="proj-meta"><span class="proj-co">오누이(설탭)</span></div>
+              <div class="proj-meta"><span class="proj-co">오누이(설탭)</span><span class="proj-kpi">유선 단순문의 ↓23%p · 학습지원 ↓14%p</span></div>
             </div>
           </div>
           <div class="proj-arrow">⌄</div>
@@ -402,7 +385,7 @@
             <div class="proj-num">2</div>
             <div class="proj-info">
               <div class="proj-title">재고 관리 자동화 대시보드 구축</div>
-              <div class="proj-meta"><span class="proj-co">오누이(설탭)</span></div>
+              <div class="proj-meta"><span class="proj-co">오누이(설탭)</span><span class="proj-kpi">수기 관리 → 자동화 · 맨먼스 감소</span></div>
             </div>
           </div>
           <div class="proj-arrow">⌄</div>
@@ -455,7 +438,7 @@
             <div class="proj-num">3</div>
             <div class="proj-info">
               <div class="proj-title">검색 운영 프로세스 수립 및 품질 개선</div>
-              <div class="proj-meta"><span class="proj-co">버킷플레이스(오늘의집)</span></div>
+              <div class="proj-meta"><span class="proj-co">버킷플레이스(오늘의집)</span><span class="proj-kpi">3만 질의어 진단 · 어드민 구축</span></div>
             </div>
           </div>
           <div class="proj-arrow">⌄</div>
@@ -507,7 +490,7 @@
             <div class="proj-num">4</div>
             <div class="proj-info">
               <div class="proj-title">검색 최상단 CTA 영역 전략 운영</div>
-              <div class="proj-meta"><span class="proj-co">버킷플레이스(오늘의집)</span></div>
+              <div class="proj-meta"><span class="proj-co">버킷플레이스(오늘의집)</span><span class="proj-kpi">CTR 10% → 30% (3배 향상)</span></div>
             </div>
           </div>
           <div class="proj-arrow">⌄</div>
