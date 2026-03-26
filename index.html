@@ -241,13 +241,17 @@
     .footer-inner a:hover { color: #0064FF; }
 
     @media print {
+      @page { margin: 14mm 16mm; size: A4; }
+      @page :first { margin-top: 14mm; }
       nav { display: none; }
       .proj-body { display: block !important; }
       .proj-arrow { display: none; }
-      .proj-card { border-color: #E5E7EB !important; page-break-inside: avoid; }
-      .proj-header { background: #EFF6FF !important; }
+      .proj-card { border-color: #E5E7EB !important; }
+      .proj-card.open { border-color: #0064FF !important; }
+      .proj-header { background: #EFF6FF !important; cursor: default; }
       .proj-num { background: #0064FF !important; color: #fff !important; }
-      section { page-break-inside: avoid; }
+      .proj-summary-strip { margin-bottom: 10px; }
+      .portfolio-list { gap: 10px; }
     }
 
     @media (max-width: 600px) {
